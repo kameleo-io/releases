@@ -16,3 +16,4 @@ jobs:
           max-versions-to-keep: 5
           token: ${{ secrets.WINGET_TOKEN }}
           version: ${{ inputs.version }}
+          release-tag: ${{ inputs.version }}
