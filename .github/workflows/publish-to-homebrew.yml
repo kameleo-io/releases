@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: eugenesvk/action-homebrew-bump-cask@a05fd49892799eade237259963d787ba0143dab1 #3.8.5
         with:
-          token: ${{ secrets.HOMEBREW_TOKEN }}
           cask: kameleo
-          tap: homebrew/core
+          tap: homebrew/cask
+          token: ${{ secrets.HOMEBREW_TOKEN }}
           tag: ${{ inputs.version || github.ref }}
