@@ -18,4 +18,5 @@ jobs:
         with:
           token: ${{ secrets.HOMEBREW_TOKEN }}
           cask: kameleo
+          tap: homebrew/core
           tag: ${{ inputs.version || github.ref }}
