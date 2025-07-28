@@ -1,9 +1,8 @@
 name: Publish to Homebrew
 
 on:
-  push:
-    tags:
-      - '*'
+  release:
+    types: [released]
   workflow_dispatch:
     inputs:
       version:
@@ -15,7 +14,7 @@ jobs:
   publish:
     runs-on: macos-latest
     steps:
-      - uses: macauley/action-homebrew-bump-cask@v1
+      - uses: eugenesvk/action-homebrew-bump-cask@a05fd49892799eade237259963d787ba0143dab1 #3.8.5
         with:
           token: ${{ secrets.HOMEBREW_TOKEN }}
           cask: kameleo
