@@ -1,13 +1,22 @@
 name: Publish to Homebrew
+
 on:
   push:
     tags:
       - '*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Homebrew cask tag to bump'
+        required: true
+        type: string
+
 jobs:
   publish:
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     steps:
       - uses: macauley/action-homebrew-bump-cask@v1
         with:
-          token: ${{secrets.HOMEBREW_TOKEN}}
+          token: ${{ secrets.HOMEBREW_TOKEN }}
           cask: kameleo
+          tag: ${{ inputs.version || github.ref }}
